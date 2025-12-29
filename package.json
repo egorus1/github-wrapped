@@ -1,0 +1,29 @@
+{
+  "name": "github-wrapped",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egorus1/github-wrapped.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/egorus1/github-wrapped/issues"
+  },
+  "homepage": "https://github.com/egorus1/github-wrapped#readme",
+  "dependencies": {
+    "pnpm": "^10.26.2",
+    "turbo": "^2.7.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

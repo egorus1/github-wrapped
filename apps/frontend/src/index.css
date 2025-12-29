@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hacker-green: #00ff00;
+  --dark-green: #00cc00;
+  --bg-black: #000000;
+  --box-border: #009900;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-black);
+  color: var(--hacker-green);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.title-wrapper {
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--hacker-green);
+  margin: 0;
+    text-shadow: 0 0 10px var(--hacker-green);
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.input-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.input-wrapper {
+  width: 100%;
+  max-width: 600px;
+  background-color: #0a0a15;
+  border: 2px solid var(--box-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.prompt {
+  color: var(--hacker-green);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.github-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--hacker-green);
+  font-size: 1.2rem;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  outline: none;
+}
+
+.github-input::placeholder {
+  color: var(--dark-green);
+  opacity: 0.5;
+}
+
+.submit-btn {
+  background-color: transparent;
+  color: var(--hacker-green);
+  border: 2px solid var(--box-border);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.submit-btn:hover {
+  background-color: var(--dark-green);
+  color: var(--bg-black);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.coffee-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.coffee-section p {
+  color: var(--hacker-green);
+  font-size: 0.9rem;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.coffee-link {
+  color: var(--hacker-green);
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.coffee-link:hover {
+  opacity: 0.7;
+}
+
+/* Results Page Styles */
+.results-terminal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.results-header {
+  text-align: center;
+}
+
+.results-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--hacker-green);
+  margin: 0 0 1rem 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.total-contributions {
+  color: var(--dark-green);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.contribution-graph {
+  display: grid;
+  grid-template-rows: repeat(7, 12px);
+  grid-auto-flow: column;
+  gap: 3px;
+  padding: 2rem;
+  background-color: #000000;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.contribution-box {
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+}
+
+.contribution-box.level-0 {
+  background-color: #0d1117;
+  border-color: #1a1a2e;
+}
+
+.contribution-box.level-1 {
+  background-color: #003300;
+  border-color: #004400;
+}
+
+.contribution-box.level-2 {
+  background-color: #006600;
+  border-color: #007700;
+}
+
+.contribution-box.level-3 {
+  background-color: #00aa00;
+  border-color: #00bb00;
+}
+
+.contribution-box.level-4 {
+  background-color: #00ff00;
+  border-color: #00ff00;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--dark-green);
+}
+
+.legend-label {
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.back-btn {
+  margin-top: 1rem;
+}
+
+.loading-text,
+.error-text {
+  color: var(--hacker-green);
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.error-text {
+  color: #ff0000;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .github-input {
+    font-size: 1rem;
+  }
+
+  .input-wrapper {
+    padding: 1rem;
+  }
+
+  .results-title {
+    font-size: 1.8rem;
+  }
+
+  .contribution-graph {
+    grid-template-rows: repeat(7, 10px);
+    gap: 2px;
+    padding: 1rem;
+  }
+
+  .contribution-box {
+    width: 10px;
+    height: 10px;
+  }
+}

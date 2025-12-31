@@ -214,27 +214,32 @@ body {
   background-color: #000000;
 }
 
-.contribution-box.level-0 {
+.contribution-box.level-0,
+.screenshot-contribution-box.level-0 {
   background-color: #0d1117;
   border-color: #1a1a2e;
 }
 
-.contribution-box.level-1 {
+.contribution-box.level-1,
+.screenshot-contribution-box.level-1 {
   background-color: #003300;
   border-color: #004400;
 }
 
-.contribution-box.level-2 {
+.contribution-box.level-2,
+.screenshot-contribution-box.level-2 {
   background-color: #006600;
   border-color: #007700;
 }
 
-.contribution-box.level-3 {
+.contribution-box.level-3,
+.screenshot-contribution-box.level-3 {
   background-color: #00aa00;
   border-color: #00bb00;
 }
 
-.contribution-box.level-4 {
+.contribution-box.level-4,
+.screenshot-contribution-box.level-4 {
   background-color: #00ff00;
   border-color: #00ff00;
 }
@@ -251,8 +256,246 @@ body {
   font-family: 'Source Code Pro', 'Courier New', monospace;
 }
 
-.back-btn {
+.stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
   margin-top: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.stat-item {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--dark-green);
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  margin: 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.share-btn {
+  background-color: var(--dark-green);
+  color: var(--bg-black);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.share-btn:hover {
+  background-color: var(--hacker-green);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.back-btn {
+  margin-top: 0;
+}
+
+/* Preview Modal Styles */
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.preview-content {
+  background-color: #0a0a15;
+  border: 2px solid var(--box-border);
+  border-radius: 4px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-title {
+  color: var(--hacker-green);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--hacker-green);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--dark-green);
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border: 1px solid var(--box-border);
+  border-radius: 4px;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.download-btn {
+  background-color: var(--dark-green);
+  color: var(--bg-black);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.download-btn:hover {
+  background-color: var(--hacker-green);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.cancel-btn {
+  background-color: transparent;
+}
+
+/* Screenshot Phone Format Styles */
+.screenshot-container {
+  position: absolute;
+  left: -10000px;
+  width: 1080px;
+  height: 1920px;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.screenshot-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(80, 1fr);
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: 4px;
+  padding: 0;
+}
+
+.screenshot-contribution-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.screenshot-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem 3rem;
+  z-index: 1;
+}
+
+.screenshot-box {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 3px solid var(--hacker-green);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.screenshot-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--hacker-green);
+  margin: 0 0 1.5rem 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  text-shadow: 0 0 15px var(--hacker-green);
+}
+
+.screenshot-total {
+  color: var(--dark-green);
+  font-size: 2rem;
+  margin: 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+}
+
+.screenshot-stats-box {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 3px solid var(--hacker-green);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 900px;
+}
+
+.screenshot-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.screenshot-stat-label {
+  font-size: 2rem;
+  color: var(--dark-green);
+  margin: 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.screenshot-stat-value {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--hacker-green);
+  margin: 0;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  text-shadow: 0 0 15px var(--hacker-green);
 }
 
 .loading-text,
@@ -294,5 +537,42 @@ body {
   .contribution-box {
     width: 10px;
     height: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .share-btn,
+  .back-btn {
+    width: 100%;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .preview-modal {
+    padding: 1rem;
+  }
+
+  .preview-content {
+    padding: 1.5rem;
+  }
+
+  .preview-title {
+    font-size: 1.2rem;
+  }
+
+  .preview-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .download-btn,
+  .cancel-btn {
+    width: 100%;
   }
 }
